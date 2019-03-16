@@ -9,7 +9,7 @@ const expressSanitizer = require("express-sanitizer");
 
 
 // APP CONFIG
-mongoose.connect("mongodb://localhost:27017/RESTful-blog-app", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:28017/RESTful-blog-app", {useNewUrlParser: true});
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -42,18 +42,21 @@ const Blog = mongoose.model("Blog", blogSchema);
 // 	}
 // });
 
-// Blog.find({}, function(err, blogs) {
-// 	if (err) {
-// 		console.log("oh nooo, error");
-// 		console.log(err);
-// 	} else {
-// 		console.log("here are the blogs");
-// 		console.log(blogs);
-// 	}
-// });
-
 
 // RESTFUL ROUTES
+
+app.get("/", function(req, res) {
+	Blog.find({}, function(err, blogs) {
+		if (err) {
+			console.log("oh nooo, error");
+			console.log(err);
+		} else {
+			res.send("Here is the index page!");
+			console.log("here are the blogs");
+			console.log(blogs);
+		}
+	});
+});
 
 
 // INDEX ROUTE
@@ -77,9 +80,9 @@ const Blog = mongoose.model("Blog", blogSchema);
 // DELETE ROUTE
 
 
-// app.listen(27017, process.env.IP, function() {
-//     console.log("Server started");
-// });
+app.listen(28017, process.env.IP, function() {
+    console.log("Server started");
+});
 
 
 ////////////////
