@@ -18,6 +18,14 @@ app.use(expressSanitizer());
 
 
 // MONGOOSE/MODEL CONFIG
+const blogSchema = new mongoose.Schema({
+	title: String,
+	image: String,
+	body: String,
+	created: {type: Date, default: Date.now}
+});
+
+const Blog = mongoose.model("Blog", blogSchema);
 
 
 // TEST CREATION
