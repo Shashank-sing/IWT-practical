@@ -1,5 +1,5 @@
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -9,7 +9,7 @@ const expressSanitizer = require("express-sanitizer");
 
 
 // APP CONFIG
-mongoose.connect(`mongodb://localhost:${process.env.PORT}/RESTful-blog-app`, {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/RESTful-blog-app", {useNewUrlParser: true});
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -29,6 +29,28 @@ const Blog = mongoose.model("Blog", blogSchema);
 
 
 // TEST CREATION
+
+// Blog.create({
+// 	title: "First post!",
+// 	image: "https://cdn.pixabay.com/photo/2014/05/02/21/50/home-office-336378_1280.jpg",
+// 	body: "Hi everybody! I'm excited to be starting my own blog :)"
+// }, function(err, blog) {
+// 	if (err) {
+// 		console.log(err);
+// 	} else {
+// 		console.log(blog);
+// 	}
+// });
+
+// Blog.find({}, function(err, blogs) {
+// 	if (err) {
+// 		console.log("oh nooo, error");
+// 		console.log(err);
+// 	} else {
+// 		console.log("here are the blogs");
+// 		console.log(blogs);
+// 	}
+// });
 
 
 // RESTFUL ROUTES
@@ -55,9 +77,9 @@ const Blog = mongoose.model("Blog", blogSchema);
 // DELETE ROUTE
 
 
-app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("Server started, listening on port " + process.env.PORT);
-});
+// app.listen(27017, process.env.IP, function() {
+//     console.log("Server started");
+// });
 
 
 ////////////////
