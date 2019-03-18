@@ -9,7 +9,7 @@ const expressSanitizer = require("express-sanitizer");
 
 
 // APP CONFIG
-mongoose.connect("mongodb://localhost:28017/RESTful-blog-app", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost/RESTful-blog-app", {useNewUrlParser: true});
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -80,7 +80,7 @@ app.get("/", function(req, res) {
 // DELETE ROUTE
 
 
-app.listen(28017, process.env.IP, function() {
+app.listen(9000, process.env.IP, function() {
     console.log("Server started");
 });
 
