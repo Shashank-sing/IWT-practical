@@ -51,6 +51,16 @@ app.get("/", function(req, res) {
 
 
 // INDEX ROUTE
+app.get("/blogs", function(req, res) {
+	Blog.find({}, function(err, blogs) {
+		if (err) {
+			console.log("An error occurred:");
+			console.log(err);
+		} else {
+			res.render("index", {blogs: blogs});
+		}
+	});
+});
 
 
 // NEW ROUTE
