@@ -132,6 +132,18 @@ app.put("/blogs/:id", function(req, res) {
 
 
 // DELETE ROUTE
+app.delete("/blogs/:id", function(req, res) {
+	Blog.findByIdAndRemove(req.params.id, function(err) {
+		if (err) {
+            console.log("An error occurred:");
+            console.log(err);
+            console.log("Redirecting to index...");
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs");
+        }
+	});
+});
 
 
 app.listen(9000, process.env.IP, function() {
