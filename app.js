@@ -70,6 +70,19 @@ app.get("/blogs/new", function(req, res) {
 
 
 // CREATE ROUTE
+app.post("/blogs", function(req, res) {
+	req.body.blog.body = req.sanitize(req.body.blog.body);
+	Blog.create(req.body.blog, function(err, newBlog) {
+		if (err) {
+			console.log("An error occurred:");
+			console.log(err);
+			console.log("Re-rendering new-entry form...");
+			res.render("new");
+		} else {
+			res.redirect("/blogs");
+		}
+	});
+});
 
 
 // SHOW ROUTE
