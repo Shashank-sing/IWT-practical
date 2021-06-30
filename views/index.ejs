@@ -1,46 +1,35 @@
 <% include ./partials/header %>
 
-
-    <div class="row">
+    <div class="container">
         <div class="container">
-            <div class="">Blogs</div>
-            <div class="">
-                <div class="">
 
-                    <% blogs.forEach(function(blog) { %>
-                        <div class="item">
-                            <div class="image">
-                                <img src="<%= blog.image %>" />
-                            </div> <!-- image -->
-                            <div class="content">
-                                <a class="header" href="/blogs/<%= blog._id %>">
-                                    <%= blog.title %>
-                                </a>
-                                <div class="meta">
-                                    <span>
+            <div class="m-5 p-5 mt-0">
+                <div class="display-2 mt-3 mb-4">Climate Change Blogs</div>
+
+                <% blogs.forEach(function(blog) { %>
+                    <div class="m-4">
+                        <a class="header blog-page-show-a" href="/blogs/<%= blog._id %>">
+                            <div class="card" style="">
+                                <img src="<%= blog.image %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h1 class="card-title">
+                                        <%= blog.title %>
+                                    </h1>
+                                    <p class="card-text">
                                         <%= blog.created.toDateString() %>
-                                    </span>
-                                </div> <!-- meta -->
-                                <div class="description">
-                                    <p>
-                                        <%- blog.body.substring(0, 100) %>...
                                     </p>
-                                </div> <!-- description -->
-                                <div class="extra">
-                                    <a class="ui floated basic violet button" href="/blogs/<%= blog._id %>">
-                                        Read more
-                                        <i class="right chevron icon"></i>
-                                    </a>
-                                </div> <!-- extra -->
-                            </div> <!-- content -->
-                        </div> <!-- item -->
-                        <% }); %>
+                                    <p class="card-text"><%- blog.body.substring(0, 100) %>...(Read More)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
-                </div> <!-- divided items -->
-            </div> <!-- top attached segment -->
+                    <% }); %>
+            </div>
         </div>
 
-    </div> <!-- main text container -->
+    </div>
+
 
 
     <% include ./partials/footer %>

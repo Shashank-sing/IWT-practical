@@ -9,3 +9,13 @@ i.icon {
 #delete {
 	display: inline;
 }
+
+.blog-page-show-a { 
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-page-show-a:hover { 
+    text-decoration: none;
+    color: inherit;
+}
