@@ -150,6 +150,3 @@ app.delete("/blogs/:id", function(req, res) {
 app.listen(9000, process.env.IP, function() {
     console.log("Server started");
 });
-
-
-////////////////
